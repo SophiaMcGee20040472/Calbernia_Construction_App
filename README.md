@@ -1,2 +1,2 @@
 # Calbernia_Construction_App
-website designed for client. 
+WIP Website being designed for client built in Angular and Typescript. 
