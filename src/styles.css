@@ -1,3 +1,234 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import 'tailwindcss';
+
+:root {
+  --irish-green: #002d18;
+  --highland-blue: #244f70;
+  --emerald-green: #347b60;
+  --fresh-lime: #a4d832;
+  --mist-blue: #719bb5;
+  --soft-white: #eaf1ed;
+  --atlantic-slate: #172f35;
+  --body-text: #425c55;
+  --border-color: #d5e2dc;
+  --font-main: Arial, Helvetica, sans-serif;
+  --content-width: 1400px;
+  --page-gutter: 7%;
+  --button-radius: 8px;
+  --card-radius: 16px;
+  --transition-standard: 0.3s ease;
+  --shadow-card: 0 10px 35px rgba(0, 45, 24, 0.08);
+  --shadow-hover: 0 18px 40px rgba(0, 45, 24, 0.14);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 16px 27px;
+  border-radius: var(--button-radius);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-standard);
+}
+
+.primary-btn {
+  background: var(--fresh-lime);
+  color: var(--irish-green);
+  border: 2px solid var(--fresh-lime);
+}
+
+.primary-btn:hover {
+  background: white;
+  border-color: white;
+  color: var(--irish-green);
+  transform: translateY(-3px);
+}
+
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.secondary-btn:hover {
+  background: white;
+  border-color: white;
+  color: var(--irish-green);
+  transform: translateY(-3px);
+}
+
+.primary-btn span,
+.secondary-btn span {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.badge,
+.about-badge,
+.services-badge,
+.contact-page .hero-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 12px 22px;
+  background: var(--emerald-green);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.badge-dot {
+  flex: 0 0 9px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--fresh-lime);
+}
+
+.cta-section {
+  padding: 100px 7%;
+  background: linear-gradient(135deg, var(--emerald-green), var(--irish-green));
+  color: white;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 850px;
+  margin: auto;
+}
+
+.cta-section .section-label {
+  color: var(--fresh-lime);
+}
+
+.cta-section h2 {
+  margin: 20px 0;
+  color: white;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.cta-section p {
+  max-width: 650px;
+  margin: 0 auto 35px;
+  color: var(--soft-white);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 17px 32px;
+  background: var(--fresh-lime);
+  color: var(--irish-green);
+  border: 2px solid var(--fresh-lime);
+  border-radius: var(--button-radius);
+  font-weight: 800;
+  text-decoration: none;
+  transition: var(--transition-standard);
+}
+
+.cta-button:hover {
+  background: white;
+  border-color: white;
+  transform: translateY(-3px);
+}
+
+.page-content {
+  min-height: 75vh;
+  background: var(--irish-green);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--fresh-lime);
+  outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .cta-section {
+    padding: 75px 6%;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+
+  .badge,
+  .about-badge,
+  .services-badge,
+  .contact-page .hero-badge {
+    font-size: 12px;
+    padding: 10px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

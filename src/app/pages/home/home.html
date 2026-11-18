@@ -1,0 +1,163 @@
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-badge">
+      <span class="badge-dot"></span>
+      {{ HOME_DATA.hero.badge }}
+    </span>
+    <h1>
+      Beautiful<br />
+      Outdoor<br />
+      Designed<br />
+      Spaces
+    </h1>
+    <p>{{ HOME_DATA.hero.description }}</p>
+    <div class="hero-buttons">
+      <a routerLink="/contact" class="primary-btn">
+        {{ HOME_DATA.hero.primaryButton }} →
+      </a>
+      <a routerLink="/services" class="secondary-btn">
+        {{ HOME_DATA.hero.secondaryButton }}
+      </a>
+    </div>
+    <div class="hero-contact">
+      @for (point of HOME_DATA.hero.contactPoints; track point) {
+        <span>✓ {{ point }}</span>
+      }
+    </div>
+  </div>
+</section>
+<app-stats [stats]="HOME_DATA.stats" variant="home" />
+<section class="services-section">
+  <app-section-heading
+    [label]="HOME_DATA.servicesSection.label"
+    [title]="HOME_DATA.servicesSection.title"
+    [description]="HOME_DATA.servicesSection.description"
+  />
+  <div class="services-grid">
+    @for (service of HOME_DATA.services; track service.title) {
+      <article class="service-card">
+        <div class="service-image">
+          <img
+            [src]="service.image"
+            [alt]="service.imageAlt"
+            loading="lazy"
+          />
+          <span class="service-icon">
+            @switch (service.icon) {
+              @case ('landscape') {
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 20h18M5 20l4-8 3 5 3-9 4 12" />
+                  <path d="M3 9l4-5 4 5M14 8l3-4 4 4" />
+                </svg>
+              }
+              @case ('garden') {
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 21v-9" />
+                  <path d="M12 12C5 12 5 5 5 5s7 0 7 7Z" />
+                  <path d="M12 15c0-7 7-7 7-7s0 7-7 7Z" />
+                  <path d="M8 21h8" />
+                </svg>
+              }
+              @case ('hardscape') {
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 20h18M4 16h16M6 12h12M8 8h8" />
+                  <path d="M5 16v4M12 12v4M19 16v4" />
+                </svg>
+              }
+              @case ('roofing') {
+                <svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 11 12 4l9 7" />
+                  <path d="M5 10v10h14V10M9 20v-6h6v6" />
+                  <path d="M3 20h18" />
+                </svg>
+              }
+            }
+          </span>
+        </div>
+        <div class="service-content">
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+          <a routerLink="/services">
+            Discover More →
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+  <div class="section-button">
+    <a routerLink="/services" class="outline-btn">
+      View All Services →
+    </a>
+  </div>
+</section>
+<section class="projects-section">
+  <app-section-heading
+    [label]="HOME_DATA.projectsSection.label"
+    [title]="HOME_DATA.projectsSection.title"
+    [description]="HOME_DATA.projectsSection.description"
+    [light]="true"
+  />
+  <div class="projects-grid">
+    @for (project of HOME_DATA.projects; track project.title) {
+      <article class="project-card">
+        <img
+          [src]="project.image"
+          [alt]="project.imageAlt"
+          loading="lazy"
+        />
+        <div class="project-overlay">
+          <span>{{ project.category }}</span>
+          <h3>{{ project.title }}</h3>
+          <a routerLink="/contact">
+            Enquire About Your Project →
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+<section class="testimonials-section">
+  <app-section-heading
+    [label]="HOME_DATA.testimonialsSection.label"
+    [title]="HOME_DATA.testimonialsSection.title"
+    [description]="HOME_DATA.testimonialsSection.description"
+  />
+  <div class="testimonial-grid">
+    @for (testimonial of HOME_DATA.testimonials; track testimonial.name) {
+      <article class="testimonial-card">
+        <div class="testimonial-stars">
+          ★★★★★
+        </div>
+        <p class="testimonial-quote">
+          "{{ testimonial.quote }}"
+        </p>
+        <div class="user">
+          <img
+            [src]="testimonial.image"
+            [alt]="testimonial.name"
+            loading="lazy"
+          />
+          <div>
+            <h3>{{ testimonial.name }}</h3>
+            <span>{{ testimonial.role }}</span>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+<app-cta-section
+  [label]="HOME_DATA.cta.label"
+  [title]="HOME_DATA.cta.title"
+  [description]="HOME_DATA.cta.description"
+  [buttonText]="HOME_DATA.cta.buttonText"
+/>

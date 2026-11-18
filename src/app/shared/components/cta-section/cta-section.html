@@ -1,0 +1,18 @@
+<section [class]="variant">
+  <div class="cta-content">
+    <span class="section-label">{{ label }}</span>
+    <h2>{{ title }}</h2>
+    <p>{{ description }}</p>
+    <div class="cta-buttons">
+      @if (buttonHref) {
+        <a [href]="buttonHref" class="cta-button">
+          {{ buttonText }} @if (arrow) { → }
+        </a>
+      } @else {
+        <a [routerLink]="buttonLink" class="cta-button">
+          {{ buttonText }} @if (arrow) { → }
+        </a>
+      }
+    </div>
+  </div>
+</section>

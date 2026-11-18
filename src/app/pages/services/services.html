@@ -1,0 +1,90 @@
+<section
+  class="services-hero"
+  [style.background-image]="
+    'linear-gradient(90deg, rgba(0,45,24,0.85), rgba(0,45,24,0.55), rgba(0,45,24,0.2)), url(' +
+    pageData.hero.backgroundImage +
+    ')'
+  "
+>
+  <div class="services-hero-overlay"></div>
+  <div class="services-hero-content">
+    <span class="services-badge">
+      <span class="badge-dot"></span>
+      {{ pageData.hero.badge }}
+    </span>
+    <h1>
+      {{ pageData.hero.title }}
+    </h1>
+    <p>
+      {{ pageData.hero.description }}
+    </p>
+    <div class="services-hero-buttons">
+      <a routerLink="/contact" class="primary-btn">
+        {{ pageData.hero.primaryButton }}
+        <span>→</span>
+      </a>
+      <a href="#our-services" class="secondary-btn">
+        {{ pageData.hero.secondaryButton }}
+      </a>
+    </div>
+  </div>
+</section>
+<section
+  class="services-section"
+  id="our-services"
+>
+  <app-section-heading
+    [label]="pageData.intro.subtitle"
+    [title]="pageData.intro.title"
+    [description]="pageData.intro.description"
+  />
+  <div class="services-grid">
+    @for (service of pageData.services; track service.title) {
+      <div class="service-card">
+        <div class="service-image">
+          <img
+            [src]="service.image"
+            [alt]="service.title"
+            loading="lazy"
+          />
+          <span class="service-category">
+            @if (service.icon) {
+              {{ service.icon }}
+            }
+            {{ service.category }}
+          </span>
+        </div>
+        <div class="service-content">
+          <h3>
+            {{ service.title }}
+          </h3>
+          <p>
+            {{ service.description }}
+          </p>
+          <div class="service-divider"></div>
+          <ul>
+            @for (feature of service.features; track feature) {
+              <li>
+                {{ feature }}
+              </li>
+            }
+          </ul>
+          <a
+            routerLink="/contact"
+            class="service-link"
+          >
+            Request Quote
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+<app-cta-section
+  label="GET IN TOUCH"
+  [title]="pageData.cta.title"
+  [description]="pageData.cta.description"
+  [buttonText]="pageData.cta.buttonText"
+  [arrow]="true"
+/>

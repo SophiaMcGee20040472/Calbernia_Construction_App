@@ -1,0 +1,98 @@
+:host { display: block; }
+
+.stats-section {
+  position: relative;
+  z-index: 2;
+  margin-top: -55px;
+  padding: 0 7%;
+}
+.stats-section .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 15px 40px rgba(0, 45, 24, .12);
+}
+.stat-card {
+  padding: 30px 20px;
+  border-right: 1px solid var(--border-color, #e5ebe7);
+  text-align: center;
+}
+.stat-card:last-child { border-right: 0; }
+.stat-card h2 {
+  margin: 0 0 8px;
+  color: var(--emerald-green, #347b60);
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.stat-card p {
+  margin: 0;
+  color: var(--body-text, #25352e);
+  font-size: 14px;
+}
+
+.about-stats-section {
+  position: relative;
+  z-index: 5;
+  padding: 0 7%;
+  margin-top: -55px;
+}
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow: hidden;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 45, 24, .1);
+}
+.about-stat-card {
+  padding: 30px 20px;
+  text-align: center;
+  border-right: 1px solid var(--border-color);
+}
+.about-stat-card:last-child { border-right: 0; }
+.about-stat-card h2 {
+  color: var(--emerald-green);
+  font-size: 2.5rem;
+  margin: 0 0 8px;
+  font-weight: 800;
+}
+.about-stat-card p {
+  color: var(--body-text);
+  font-size: 14px;
+  margin: 0;
+}
+
+:host-context(.contact-page) .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+:host-context(.contact-page) .stat-box {
+  background: #fff;
+  padding: 35px 15px;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 45, 24, .07);
+  border-bottom: 4px solid var(--fresh-lime);
+  transition: all .3s ease;
+}
+:host-context(.contact-page) .stat-box:hover { transform: translateY(-6px); }
+:host-context(.contact-page) .stat-box h3 {
+  color: var(--emerald-green);
+  font-size: 38px;
+  font-weight: 800;
+  margin: 0 0 10px;
+}
+:host-context(.contact-page) .stat-box span {
+  color: var(--body-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .stats-section .stats-grid,
+  .about-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  :host-context(.contact-page) .stats-grid { grid-template-columns: 1fr; }
+}

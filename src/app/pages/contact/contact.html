@@ -1,0 +1,141 @@
+<section class="contact-page">
+  <section class="contact-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge">
+        <span class="badge-dot"></span>
+        {{ pageData.hero.badge }}
+      </span>
+      <h1>{{ pageData.hero.title }}</h1>
+      <p>{{ pageData.hero.description }}</p>
+      <div class="hero-contact-strip">
+        <a [href]="'tel:' + company.phone"> 📞 {{ company.phone }} </a>
+        <a [href]="'mailto:' + company.email"> ✉️ {{ company.email }} </a>
+      </div>
+      <div class="hero-buttons">
+        <a href="#quote-section" class="primary-btn"> {{ pageData.hero.primaryButton }} → </a>
+        <a href="#services" class="secondary-btn">
+          {{ pageData.hero.secondaryButton }}
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="about-section">
+    <div class="section-content">
+      <div class="section-text">
+        <span class="section-tag">
+          {{ pageData.about.label }}
+        </span>
+        <h2>{{ pageData.about.title }}</h2>
+        @for (paragraph of pageData.about.paragraphs; track $index) {
+          <p>{{ paragraph }}</p>
+        }
+      </div>
+      <app-stats [stats]="pageData.about.stats" variant="contact" />
+    </div>
+  </section>
+  <section class="services-section" id="services">
+    <app-section-heading
+      variant="section-heading"
+      [label]="pageData.services.label"
+      [title]="pageData.services.title"
+      [description]="pageData.services.description"
+    />
+    <div class="services-grid">
+      @for (service of pageData.services.items; track service.title) {
+        <div class="service-card">
+          <div class="service-icon">
+            {{ service.icon }}
+          </div>
+          <h3>{{ service.title }}</h3>
+        </div>
+      }
+    </div>
+  </section>
+  <section class="quote-section" id="quote-section">
+    <div class="quote-wrapper">
+      <div class="quote-card">
+        <span class="section-tag">
+          {{ pageData.quote.label }}
+        </span>
+        <h2>{{ pageData.quote.title }}</h2>
+        <p>{{ pageData.quote.description }}</p>
+        <div class="quote-features">
+          @for (feature of pageData.quote.features; track feature) {
+            <div>✓ {{ feature }}</div>
+          }
+        </div>
+        <a [href]="'mailto:' + company.email" class="primary-btn">
+          {{ pageData.quote.buttonText }} →
+        </a>
+      </div>
+      <div class="contact-card">
+        <span class="section-tag">
+          {{ pageData.contact.label }}
+        </span>
+        <h2>{{ pageData.contact.title }}</h2>
+        <div class="contact-items">
+          @for (item of pageData.contact.items; track item.type) {
+            <div class="contact-item">
+              <div class="contact-icon">
+                {{ item.icon }}
+              </div>
+              <div>
+                <h3>{{ item.title }}</h3>
+                @switch (item.type) {
+                  @case ('phone') {
+                    <a [href]="'tel:' + company.phone">
+                      {{ company.phone }}
+                    </a>
+                  }
+                  @case ('email') {
+                    <a [href]="'mailto:' + company.email">
+                      {{ company.email }}
+                    </a>
+                  }
+                  @case ('location') {
+                    <span>{{ company.location }}</span>
+                  }
+                  @case ('hours') {
+                    <span>{{ company.workingHours }}</span>
+                  }
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="reviews-section">
+    <app-section-heading
+      variant="section-heading"
+      [label]="pageData.reviews.label"
+      [title]="pageData.reviews.title"
+    />
+    <div class="reviews-grid">
+      @for (review of pageData.reviews.items; track review.name) {
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"{{ review.quote }}"</p>
+          <h3>— {{ review.name }}</h3>
+        </div>
+      }
+    </div>
+  </section>
+  <section class="contact-cta">
+    <div class="cta-content">
+      <span class="section-tag">
+        {{ pageData.cta.label }}
+      </span>
+      <h2>{{ pageData.cta.title }}</h2>
+      <p>{{ pageData.cta.description }}</p>
+      <div class="cta-buttons">
+        <a [href]="'mailto:' + company.email" class="cta-button">
+          {{ pageData.cta.buttonText }} →
+        </a>
+        <a [href]="'tel:' + company.phone" class="cta-phone"> 📞 {{ company.phone }} </a>
+      </div>
+    </div>
+  </section>
+</section>

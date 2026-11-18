@@ -1,0 +1,10 @@
+<div [class]="variant" [class.light]="light">
+  <span [class.section-label]="variant === 'section-title'"
+        [class.section-tag]="variant === 'section-heading'">
+    {{ label }}
+  </span>
+  <h2>{{ title }}</h2>
+  @if (description) {
+    <p>{{ description }}</p>
+  }
+</div>

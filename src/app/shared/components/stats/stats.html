@@ -1,0 +1,32 @@
+@if (variant === 'home') {
+  <section class="stats-section">
+    <div class="stats-grid">
+      @for (stat of stats; track stat.label) {
+        <article class="stat-card">
+          <h2>{{ stat.value }}</h2>
+          <p>{{ stat.label }}</p>
+        </article>
+      }
+    </div>
+  </section>
+} @else if (variant === 'about') {
+  <section class="about-stats-section">
+    <div class="about-stats-grid">
+      @for (stat of stats; track stat.label) {
+        <article class="about-stat-card">
+          <h2>{{ stat.value }}</h2>
+          <p>{{ stat.label }}</p>
+        </article>
+      }
+    </div>
+  </section>
+} @else {
+  <div class="stats-grid">
+    @for (stat of stats; track stat.label) {
+      <div class="stat-box">
+        <h3>{{ stat.value }}</h3>
+        <span>{{ stat.label }}</span>
+      </div>
+    }
+  </div>
+}

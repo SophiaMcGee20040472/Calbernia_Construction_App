@@ -1,0 +1,123 @@
+<section
+  class="about-hero"
+  [style.background-image]="
+    'linear-gradient(90deg, rgba(0,35,20,.90), rgba(0,35,20,.65), rgba(0,35,20,.20)), url(' +
+    pageData.hero.backgroundImage +
+    ')'
+  "
+>
+  <div class="about-hero-overlay"></div>
+  <div class="about-hero-content">
+    <span class="about-badge">
+      <span class="badge-dot"></span>
+      {{ pageData.hero.badge }}
+    </span>
+    <h1>
+      Built on<br />
+      Experience.<br />
+      Grounded in<br />
+      Quality.
+    </h1>
+    <p>{{ pageData.hero.description }}</p>
+    <div class="about-hero-buttons">
+      <a routerLink="/contact" class="primary-btn">
+        {{ pageData.hero.primaryButton }}
+        <span>→</span>
+      </a>
+      <a routerLink="/services" class="secondary-btn">
+        {{ pageData.hero.secondaryButton }}
+      </a>
+    </div>
+    <div class="about-hero-contact">
+      @for (point of pageData.hero.contactPoints; track point) {
+        <span>✓ {{ point }}</span>
+      }
+    </div>
+  </div>
+</section>
+<app-stats [stats]="pageData.stats" variant="about" />
+<section class="about-intro-section">
+  <div class="about-intro-grid">
+    <div class="about-intro-image">
+      <img [src]="pageData.intro.image" [alt]="pageData.intro.imageAlt" loading="lazy" />
+      <div class="experience-badge">
+        <strong>
+          {{ pageData.intro.experienceValue }}
+        </strong>
+        <span>
+          {{ pageData.intro.experienceLabel }}
+        </span>
+      </div>
+    </div>
+    <div class="about-intro-content">
+      <span class="section-label">
+        {{ pageData.intro.label }}
+      </span>
+      <h2>
+        {{ pageData.intro.title }}
+      </h2>
+      @for (paragraph of pageData.intro.paragraphs; track $index) {
+        <p>
+          {{ paragraph }}
+        </p>
+      }
+      <a routerLink="/services" class="about-text-link">
+        {{ pageData.intro.linkText }}
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="about-approach-section">
+  <div class="about-approach-container">
+    <app-section-heading
+      [label]="pageData.approach.label"
+      [title]="pageData.approach.title"
+      [description]="pageData.approach.description"
+      [light]="true"
+    />
+    <div class="approach-grid">
+      @for (item of pageData.approach.items; track item.number) {
+        <article class="approach-card">
+          <span class="approach-number">
+            {{ item.number }}
+          </span>
+          <div class="approach-icon">
+            {{ item.icon }}
+          </div>
+          <h3>
+            {{ item.title }}
+          </h3>
+          <p>
+            {{ item.description }}
+          </p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+<section class="about-commitment-section">
+  <div class="commitment-content">
+    <span class="section-label">
+      {{ pageData.commitment.label }}
+    </span>
+
+    <h2>
+      {{ pageData.commitment.title }}
+    </h2>
+
+    <p>
+      {{ pageData.commitment.description }}
+    </p>
+
+    <a routerLink="/contact" class="commitment-btn">
+      {{ pageData.commitment.buttonText }}
+    </a>
+  </div>
+</section>
+<app-cta-section
+  [label]="pageData.cta.label"
+  [title]="pageData.cta.title"
+  [description]="pageData.cta.description"
+  [buttonText]="pageData.cta.buttonText"
+/>
